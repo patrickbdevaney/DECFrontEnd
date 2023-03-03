@@ -1,13 +1,14 @@
 import { Alchemy, Network, Utils } from 'alchemy-sdk';
-import { ethers } from 'ethers';
+import { ethers, BrowserProvider } from 'ethers';
 import { useEffect, useState } from 'react';
 
 
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+
 
 
 function HandleClique() {
+  const provider = new ethers.BrowserProvider()
   const [userAddress, setUserAddress] = useState('');
   const [account, setAccount] = useState();
   const [results, setResults] = useState([]);
@@ -84,3 +85,5 @@ function HandleClique() {
     const name=await provider.lookupAddress(userAddress);
     setName[name];
   }};
+
+export default HandleClique;

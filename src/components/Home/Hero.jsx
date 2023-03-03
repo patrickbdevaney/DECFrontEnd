@@ -5,8 +5,14 @@ import Input from '../ui/Input';
 import Button from '../ui/Button';
 import { FcGoogle } from 'react-icons/fc';
 import metamask from '@/../../public/img/metamask.svg';
+import ethers from 'ethers'
+import HandleClique from './handleClique'
 
 const Hero = () => {
+  function connectMetamask() {
+
+  }
+
   return (
     <div className="bg-skin-dark overflow-y-hidden text-skin-white max-w-[1764px] mx-auto px-10">
       <div className="pt-16 grid  gap-10 lg:grid-cols-2">
@@ -37,17 +43,12 @@ const Hero = () => {
               </span>
             </button>
             
-            <button className="btn-secondary w-full" onClick={() => }>
+            <button className="btn-secondary w-full" onClick={() => connectMetamask}>
             <HandleClique />
               <span className="flex justify-center items-center gap-3">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
                 <span>Metamask</span>
               </span>
-              if(window.ethereum){
-      // Do something
-    }else{
-      alert("install metamask extension!!")
-    }
             </button>
             
           </div>
