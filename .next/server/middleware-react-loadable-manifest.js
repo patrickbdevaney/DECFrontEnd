@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={"../../node_modules/alchemy-sdk/dist/esm/index-f2cb9b9b.js -> ./alchemy-provider-2d595a87.js":{"id":"../../node_modules/alchemy-sdk/dist/esm/index-f2cb9b9b.js -> ./alchemy-provider-2d595a87.js","files":[]},"../../node_modules/alchemy-sdk/dist/esm/index-f2cb9b9b.js -> ./alchemy-websocket-provider-99b8f677.js":{"id":"../../node_modules/alchemy-sdk/dist/esm/index-f2cb9b9b.js -> ./alchemy-websocket-provider-99b8f677.js","files":[]}}
+self.__REACT_LOADABLE_MANIFEST={}

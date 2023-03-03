@@ -1,4 +1,4 @@
-import Navbar from './Navbar';
+import Navbar from '../reusable/Navbar';
 import Hero from './Hero';
 const Home = () => {
   return (
