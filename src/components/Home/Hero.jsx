@@ -37,7 +37,8 @@ const Hero = () => {
               </span>
             </button>
             
-            <button className="btn-secondary w-full">
+            <button className="btn-secondary w-full" onClick={() => }>
+            <HandleClique />
               <span className="flex justify-center items-center gap-3">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
                 <span>Metamask</span>
