@@ -8,14 +8,11 @@ import { useState, useEffect } from 'react';
 import Network from './Network';
 
 
-const Navbar = () => {
+const Wallet = () => {
   const router = useRouter();
   const [lan, setLang] = useState('');
   const [userAddress, setUserAddress] = useState('');
-  const [account, setAccount] = useState();
-  const [results, setResults] = useState([]);
-  const [hasQueried, setHasQueried] = useState(false);
-  const [isLoading, setisLoading] = useState(false);
+
   const [tokenDataObjects, setTokenDataObjects] = useState([]);
   const [walletAddress, setWalletAddress] = useState("");
   const [nameid,setName] = useState();
@@ -23,11 +20,14 @@ const Navbar = () => {
   useEffect(() => {
     checkWallet()
   }, [])
+
+
   const checkWallet = async () => {
     const provider = new BrowserProvider(window.ethereum, "any")
     const accounts = await provider.send("eth_accounts", [])
     setWalletAddress(accounts[0])
   } 
+
   const connectMetamask = async () => {
     const baseChainID = 84531
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
@@ -56,14 +56,14 @@ const Navbar = () => {
 
         <div>
             {!walletAddress ? 
-                <button onClick={connectMetamask} className='px-2 py-2 w-42 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+                <button onClick={connectMetamask} className='px-2 py-2 w-48 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
                 <span>Connect Metamask</span>
                 </button> 
             :  
-                <button className='px-2 py-2 w-42 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+                <button className='px-2 py-2 w-48 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
-                <span>{walletAddress.substring(0,10)}...{walletAddress.substring(36,40)}</span>
+                <span>{walletAddress.substring(0,8)}...{walletAddress.substring(36,40)}</span>
                 </button> 
                 }
         </div>
@@ -72,4 +72,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Wallet;

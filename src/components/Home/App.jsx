@@ -23,7 +23,7 @@ import {
   
   
   
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+
   
   
   function App() {
@@ -39,40 +39,40 @@ import {
   
     
       
-    async function getinfo(x) {
-      setUserAddress(x);
-      const name=await provider.lookupAddress(userAddress);
-      setName[name];
-    }
+    // async function getinfo(x) {
+    //   setUserAddress(x);
+    //   const name=await provider.lookupAddress(userAddress);
+    //   setName[name];
+    // }
   
   
-    async function getNftsForOwner() {
-      setisLoading(true);
-      const config = {
-        apiKey: 'Se-7teMwhagj9USE3mjDZk5fH2mcJqXs',
-        network: Network.ETH_GOERLI,
-      };
+    // async function getNftsForOwner() {
+    //   setisLoading(true);
+    //   const config = {
+    //     apiKey: 'Se-7teMwhagj9USE3mjDZk5fH2mcJqXs',
+    //     network: Network.ETH_GOERLI,
+    //   };
   
-      const alchemy = new Alchemy(config);
-      const data = await alchemy.nft.getNftsForOwner(userAddress);
+    //   const alchemy = new Alchemy(config);
+    //   const data = await alchemy.nft.getNftsForOwner(userAddress);
   
   
-      setResults(data);
+    //   setResults(data);
   
-      const tokenDataPromises = [];
+    //   const tokenDataPromises = [];
   
-      for (let i = 0; i < data.ownedNfts.length; i++) {
-        const tokenData = alchemy.nft.getNftMetadata(
-          data.ownedNfts[i].contract.address,
-          data.ownedNfts[i].tokenId
-        );
-        tokenDataPromises.push(tokenData);
-      }
+    //   for (let i = 0; i < data.ownedNfts.length; i++) {
+    //     const tokenData = alchemy.nft.getNftMetadata(
+    //       data.ownedNfts[i].contract.address,
+    //       data.ownedNfts[i].tokenId
+    //     );
+    //     tokenDataPromises.push(tokenData);
+    //   }
   
-      setTokenDataObjects(await Promise.all(tokenDataPromises));
-      setHasQueried(true);
-      setisLoading(false);
-    }
+    //   setTokenDataObjects(await Promise.all(tokenDataPromises));
+    //   setHasQueried(true);
+    //   setisLoading(false);
+    // }
   
     return (
         <Box w="100vw" textAlign="right" py={4} mr={12}>

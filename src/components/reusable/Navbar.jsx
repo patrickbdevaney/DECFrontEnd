@@ -1,49 +1,25 @@
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { navLinks } from '@/data/data';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { ethers, BrowserProvider } from 'ethers'
-import { useRouter } from 'next/router';
+
 import Logo from '@/../../public/img/Logo.svg';
 import LanguagrIcon from '@/../../public/img/lang.svg';
 import { navLinks } from '@/data/data';
-import Button from '../ui/Button';
-import { useState, useEffect } from 'react';
+
 import Network from './Network';
 import Wallet from './Wallet';
+
+
 
 const Navbar = () => {
   const router = useRouter();
   const [lan, setLang] = useState('');
-  const [isLoading, setisLoading] = useState(false);
-  const [tokenDataObjects, setTokenDataObjects] = useState([]);
 
-  // const [walletAddress, setWalletAddress] = useState("");
-  // const [nameid,setName] = useState();
+
   
-
-  // const connectMetamask = async () => {
-  //   const baseChainID = 84531
-  //   if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-
-  //     try {
-  //       /* MetaMask is installed */
-  //       const provider = new BrowserProvider(window.ethereum, "any")
-  //       const accounts = await provider.send("eth_requestAccounts", [])
-  //       const network = await provider.getNetwork();
-  //       setWalletAddress(accounts[0])
-  //       if (network.chainId !== 84531) { // if network Base
-  //         await provider.send('wallet_switchEthereumChain', [{ chainId: `0x${baseChainID.toString(16)}` }])
-  //       }
-
-  //     } catch (err) {
-  //       console.error(err.message);
-  //     }
-
-      
-  //   } else {
-  //     /* MetaMask is not installed */
-  //     console.log("Please install MetaMask");
-  //   }
-  // };
   return (
     <header className="bg-skin-lightDark hidden md:block max-w-[1764px] mx-auto">
       <nav className="flex mx-auto items-center justify-between px-6 ">

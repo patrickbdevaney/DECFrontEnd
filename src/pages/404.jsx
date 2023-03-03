@@ -1,4 +1,4 @@
-import Navbar from '@/components/Home/Navbar';
+import Navbar from '@/components/reusable/Navbar';
 import Link from 'next/link';
 import Layout from '@/components/layout/Layout';
 const NotFound = () => {
