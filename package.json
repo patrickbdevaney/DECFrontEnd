@@ -1,0 +1,30 @@
+{
+  "name": "decsolar-energy-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "apexcharts": "^3.37.1",
+    "chart.js": "^4.2.1",
+    "eslint": "8.35.0",
+    "eslint-config-next": "13.2.2",
+    "faker": "^6.6.6",
+    "next": "13.2.2",
+    "react": "18.2.0",
+    "react-apexcharts": "^1.4.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-modern-drawer": "^1.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
+  }
+}
