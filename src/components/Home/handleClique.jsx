@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 
 function HandleClique() {
-  const provider = new ethers.BrowserProvider()
+  const provider = new ethers.BrowserProvider();
   const [userAddress, setUserAddress] = useState('');
   const [account, setAccount] = useState();
   const [results, setResults] = useState([]);
@@ -32,6 +32,7 @@ function HandleClique() {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
+        
         setWalletAddress(accounts[0]);
         setUserAddress(accounts[0]);
         console.log(accounts[0]);
