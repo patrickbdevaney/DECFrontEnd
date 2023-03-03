@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react'
-import { ethers, browserProvider } from 'ethers'
+import { ethers, BrowserProvider } from 'ethers'
 
 
 
@@ -18,22 +18,41 @@ export default function Network() {
 
     async function changeNetwork(network) {
         if (network == 'Base') {
+            let chainId = 84531;
             setNetwork(network)
 
             if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
 
                 try {
                   /* MetaMask is installed */
-                  const accounts = await new BrowserProvider({
-                    method: "eth_requestAccounts",
-                  });
+                  const provider = new BrowserProvider(window.ethereum, "any")
+
                   const walletNetwork = await provider.getNetwork()
                   if (walletNetwork.chainId !== 84531 && network == 'Base') { // if network Base
-                    await ethers.send('wallet_switchEthereumChain', [{ chainId: '0x84351' }])
+                    try {
+                        provider.send('wallet_switchEthereumChain', [
+                          { chainId: `0x${chainId.toString(16)}` }
+                        ]);
+                      } catch (error) {
+                        if (error.code === 4902)
+                          try {
+                            provider.send('wallet_addEthereumChain', [
+                              {
+                                chainId: `0x${chainId.toString(16)}`,
+                                chainName: "Base Goerli",
+                                nativeCurrency: "ETH",
+                                rpcUrls: ['https://goerli.base.org'],
+                                blockExplorerUrls: ['https://goerli.basescan.org']
+                              }
+                            ]);
+                          } catch (error) {
+                            console.log('Error Setting Network', error);
+                          }
+                      }
                   }
-                  setWalletAddress(accounts[0]);
-                  setUserAddress(accounts[0]);
-                  console.log(accounts[0]);
+                //   setWalletAddress(accounts[0]);
+                //   setUserAddress(accounts[0]);
+                //   console.log(accounts[0]);
                 } catch (err) {
                   console.error(err.message);
                 }
@@ -47,19 +66,37 @@ export default function Network() {
             setNetwork(network)
 
             if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
-
+                let chainId = 80001
                 try {
                   /* MetaMask is installed */
-                  const accounts = await window.ethereum.request({
-                    method: "eth_requestAccounts",
-                  });
-                  const network = await provider.getNetwork()
-                  if (network.chainId !== 80001 && network == 'Polygon') { // if network Base
-                    await provider.send('wallet_switchEthereumChain', [{ chainId: '0x80001' }])
+                  const provider = new BrowserProvider(window.ethereum, "any")
+
+                  const walletNetwork = await provider.getNetwork()
+                  if (walletNetwork.chainId !== 80001 && network == 'Polygon') { // if network Base
+                    try {
+                        provider.send('wallet_switchEthereumChain', [
+                          { chainId: `0x${chainId.toString(16)}` }
+                        ]);
+                      } catch (error) {
+                        if (error.code === 4902)
+                          try {
+                            provider.send('wallet_addEthereumChain', [
+                              {
+                                chainId: `0x${chainId.toString(16)}`,
+                                chainName: "Polygon Mumbai",
+                                nativeCurrency: "MATIC",
+                                rpcUrls: ['https://rpc-mumbai.maticvigil.com/'],
+                                blockExplorerUrls: ['hhttps://polygonscan.com']
+                              }
+                            ]);
+                          } catch (error) {
+                            console.log('Error Setting Network', error);
+                          }
+                      }
                   }
-                  setWalletAddress(accounts[0]);
-                  setUserAddress(accounts[0]);
-                  console.log(accounts[0]);
+                //   setWalletAddress(provider[0]);
+                //   setUserAddress(provider[0]);
+                //   console.log(provider[0]);
                 } catch (err) {
                   console.error(err.message);
                 }

@@ -27,23 +27,19 @@ const Navbar = () => {
     // setWalletAddress(accounts[0])
   } 
   const connectMetamask = async () => {
-
+    const baseChainID = 84531
     if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
 
       try {
         /* MetaMask is installed */
-        const accounts = await new BrowserProvider({
-          method: "eth_requestAccounts",
-        });
-        
-        const network = await ethers.providers.getNetwork();
-        if (network.chainId !== 84531 && jsNetwork == 'Base') { // if network Base
-          await provider.send('wallet_switchEthereumChain', [{ chainId: '0x84351' }])
+        const provider = new BrowserProvider(window.ethereum, "any")
+        const accounts = await provider.send("eth_requestAccounts", [])
+        const network = await provider.getNetwork();
+        setWalletAddress(accounts[0])
+        if (network.chainId !== 84531) { // if network Base
+          await provider.send('wallet_switchEthereumChain', [{ chainId: `0x${baseChainID.toString(16)}` }])
         }
-        setWalletAddress(accounts[0]);
-        console.log(accounts[0]);
-        setUserAddress(accounts[0]);
-        console.log(accounts[0]);
+
       } catch (err) {
         console.error(err.message);
       }
@@ -56,7 +52,7 @@ const Navbar = () => {
   };
   return (
     <header className="bg-skin-lightDark hidden md:block max-w-[1764px] mx-auto">
-      <nav className="flex  mx-auto items-center justify-between px-6 ">
+      <nav className="flex mx-auto items-center justify-between px-6 ">
         <div className="brand">
           <Image src={Logo} alt="decsolar energy" width={120} height={60} />
         </div>
@@ -97,13 +93,13 @@ const Navbar = () => {
               </option>
             </select>
           </div>
-          <div className="btn-group flex items-center gap-x-2">
-            {!walletAddress ? <button onClick={connectMetamask} className='px-2.5 py-2.5 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+          <div className="btn-group flex items-center gap-x-2 ">
+            {!walletAddress ? <button onClick={connectMetamask} className='px-2.5 py-2.5 w-42 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
               <span>Connect Metamask</span>
             </button> 
             :  
-            <button onClick={connectMetamask} className='px-2.5 py-2.5 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
-            <span>{walletAddress}</span>
+            <button onClick={connectMetamask} className='px-2.5 py-2.5 max-w-42 w-42 truncate rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+            <span>{walletAddress.substring(0,10)}...{walletAddress.substring(36,40)}</span>
             </button> }
 
             <Network> </Network>
