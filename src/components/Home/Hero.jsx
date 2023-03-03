@@ -5,6 +5,7 @@ import Input from '../ui/Input';
 import Button from '../ui/Button';
 import { FcGoogle } from 'react-icons/fc';
 import metamask from '@/../../public/img/metamask.svg';
+
 const Hero = () => {
   return (
     <div className="bg-skin-dark overflow-y-hidden text-skin-white max-w-[1764px] mx-auto px-10">
@@ -35,12 +36,19 @@ const Hero = () => {
                 <span>Google</span>
               </span>
             </button>
+            
             <button className="btn-secondary w-full">
               <span className="flex justify-center items-center gap-3">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
-                <span>Google</span>
+                <span>Metamask</span>
               </span>
+              if(window.ethereum){
+      // Do something
+    }else{
+      alert("install metamask extension!!")
+    }
             </button>
+            
           </div>
         </div>
       </div>
