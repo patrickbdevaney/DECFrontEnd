@@ -10,7 +10,7 @@ import Wallet from '../reusable/Wallet'
 import ethers from 'ethers'
 
 
-const Hero = () => {
+const Login = () => {
   const [network, setNetwork] = useState('Base')
   let jsNetwork = 'Base'
 
@@ -45,13 +45,7 @@ const Hero = () => {
               </span>
             </button>
             
-            {/* <button className="btn-secondary w-full hover:scale-110 transition" onClick={connectMetamask}>
 
-              <span className="flex justify-center items-center gap-3">
-                <Image src={metamask} alt="metamask" width={35} height={35} />
-                <span>Metamask</span>
-              </span>
-            </button> */}
             <Wallet/>
           </div>
         </div>
@@ -60,4 +54,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default Login;
