@@ -1,7 +1,7 @@
 import { TfiWorld } from 'react-icons/tfi';
 import { useState } from 'react';
 const Header = () => {
-  const [lan, setLang] = useState('');
+  const [lan, setLang] = useState('es');
   return (
     <header className="flex  py-3 bg-transparent items-center px-5 justify-between ">
       <h2 className="text-lg text-skin-lightDark">Projects</h2>
@@ -9,11 +9,10 @@ const Header = () => {
         <select
           defaultValue={lan}
           className="border-0 focus:outline-none font-poppins text-[18px] bg-transparent"
-          onChange={e => setLang(e.target.value)}
+          onChange={(e) => setLang(e.target.value)}
         >
           <option
             className="text-skin-green  border-0 focus:border-0 bg-skin-lightDark"
-            selected
             value={'ES'}
           >
             ES

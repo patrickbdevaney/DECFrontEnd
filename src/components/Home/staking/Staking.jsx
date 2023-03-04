@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import Navbar from './Navbar2';
+import Navbar from '../../reusable/Navbar2';
 import Ethereum from '@/../../public/img/Ethereum.svg';
 import Image from 'next/image';
 import Toast from './Toast';
@@ -8,14 +8,14 @@ import Safety from '@/../../public/img/Safety.svg';
 import Link from 'next/link';
 import Stake from './Staking';
 import { StakingData } from '@/data/data';
-a
+
 //import styles 👇
 import 'react-modern-drawer/dist/index.css';
 
 const Staking = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleDrawer = () => {
-    setIsOpen(prevState => !prevState);
+    setIsOpen((prevState) => !prevState);
 
     console.log(isOpen);
   };
@@ -59,9 +59,7 @@ const Staking = () => {
               price="$434.99M"
             />
           </div>
-          <div className="grid gap-4 py-7  lg:grid-cols-2">
-
-          </div>
+          <div className="grid gap-4 py-7  lg:grid-cols-2"></div>
         </div>
       </div>
     </Layout>
