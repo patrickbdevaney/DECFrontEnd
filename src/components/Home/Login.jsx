@@ -1,13 +1,20 @@
+import { useState, useEffect  } from 'react'
+import ethers from 'ethers'
+
+
 import Image from 'next/image';
 import Link from 'next/link';
+
 import heroImage from '@/../../public/img/hero.svg';
+
 import Input from '../ui/Input';
 import Button from '../ui/Button';
-import { useState, useEffect  } from 'react'
+
 import { FcGoogle } from 'react-icons/fc';
 import metamask from '@/../../public/img/metamask.svg';
+
 import Wallet from '../reusable/Wallet'
-import ethers from 'ethers'
+
 
 
 const Login = () => {

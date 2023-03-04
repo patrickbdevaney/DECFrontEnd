@@ -56,12 +56,12 @@ const Wallet = () => {
 
         <div>
             {!walletAddress ? 
-                <button onClick={connectMetamask} className='px-2 py-2 w-48 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+                <button onClick={connectMetamask} className='text-white px-2 py-2 w-56  flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
                 <span>Connect Metamask</span>
                 </button> 
             :  
-                <button className='px-2 py-2 w-48 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
+                <button className='text-white px-2 py-2 w-48 flex items-center gap-3 rounded-lg bg-[#0052fe] hover:scale-[1.05] transition' name="Create Account">
                 <Image src={metamask} alt="metamask" width={35} height={35} />
                 <span>{walletAddress.substring(0,8)}...{walletAddress.substring(36,40)}</span>
                 </button> 

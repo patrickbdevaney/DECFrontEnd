@@ -3,7 +3,7 @@ import Image from 'next/image';
 import DasboardButton from '../../components/ui/DasboardButton';
 
 import Modal from '@/components/ui/Modal';
-const Card = ({
+const Stake = ({
   titile,
   StakingAPR,
   MaxSlashing,
@@ -87,4 +87,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default Stake;

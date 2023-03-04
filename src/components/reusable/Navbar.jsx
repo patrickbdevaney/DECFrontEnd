@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 import Logo from '@/../../public/img/Logo.svg';
 import LanguagrIcon from '@/../../public/img/lang.svg';
-import { navLinks } from '@/data/data';
+
 
 import Network from './Network';
 import Wallet from './Wallet';
@@ -24,7 +24,7 @@ const Navbar = () => {
     <header className="bg-skin-lightDark hidden md:block max-w-[1764px] mx-auto">
       <nav className="flex mx-auto items-center justify-between px-6 ">
         <div className="brand">
-          <Image src={Logo} alt="decsolar energy" width={120} height={60} />
+          <Link href='/'><Image src={Logo} alt="decsolar energy" width={120} height={60} /></Link>
         </div>
         <div className="links flex items-center gap-x-7">
           <ul className="flex  gap-x-6 items-center">

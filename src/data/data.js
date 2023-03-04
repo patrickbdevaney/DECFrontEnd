@@ -4,12 +4,12 @@ export const navLinks = [
     slug: '/',
   },
   {
-    name: 'About us',
-    slug: 'about-us',
+    name: 'Staking',
+    slug: 'staking',
   },
   {
-    name: 'Blog',
-    slug: 'blog',
+    name: 'Projects',
+    slug: 'projects',
   },
   {
     name: 'White Paper',
@@ -39,19 +39,19 @@ export const sideLinks = [
     slug: '/projects',
     icon: <AiFillInteraction size={24} />,
   },
+  // {
+  //   name: 'Buy/Sell',
+  //   slug: '/buy/sell',
+  //   icon: <AiFillAppstore size={24} />,
+  // },
+  // {
+  //   name: 'Liquidity Pool ',
+  //   slug: '/liquidity-pool',
+  //   icon: <AiFillSetting size={24} />,
+  // },
   {
-    name: 'Buy/Sell',
-    slug: '/buy/sell',
-    icon: <AiFillAppstore size={24} />,
-  },
-  {
-    name: 'Liquidity Pool ',
-    slug: '/liquidity-pool',
-    icon: <AiFillSetting size={24} />,
-  },
-  {
-    name: 'Pay Bill',
-    slug: '/pay-billing',
+    name: 'Invoices',
+    slug: '/invoices',
     icon: <MdPayment size={24} />,
   },
 ];

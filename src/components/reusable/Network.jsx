@@ -130,7 +130,7 @@ export default function Network() {
             </button>
             {expanded && (
             <div className='animate-fade-in-up absolute flex w-full flex-column 
-            border border-[#dddBe6] rounded-lg flex-wrap bg-[#F5F5F5] dark:bg-[#16161d] mt-2'>
+            border border-[#dddBe6] rounded-lg flex-wrap  mt-2'>
                 <div className='flex w-full gap-2 font-bold rounded-lg'>
                     <ul className="w-full">
                         
